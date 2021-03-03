@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
-
+const port = process.env.Port || 3000
 const app = express();
 const pathDirectory = path.join(__dirname, '../public')
 const viewsdirectory = path.join(__dirname, '../templates/views');
@@ -84,7 +84,7 @@ app.get("*" , (req,res)=>{
     res.send("page not found. 404 error");
 })
 
-app.listen(3000, ()=>{
-    console.log("server started at port 3000")
+app.listen(port, ()=>{
+    console.log("server started at port " + port)
 });
 
